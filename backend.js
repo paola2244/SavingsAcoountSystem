@@ -1,3 +1,5 @@
+// withdraw (with balance validation)
+
 
 withdrawButton.addEventListener("click", () => {
     let amount = parseFloat(amountInput.value);
@@ -8,7 +10,7 @@ withdrawButton.addEventListener("click", () => {
     }
 
     if (amount > balance) {
-        messageText.textContent = "Insufficient funds.";
+        messageText.textContent = "Insufficient balance. Operation denied.";
         return;
     }
 
