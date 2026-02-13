@@ -1,7 +1,20 @@
-const checkButton = document.querySelector(".check");
 
+withdrawButton.addEventListener("click", () => {
+    let amount = parseFloat(amountInput.value);
 
-checkButton.addEventListener("click", () => {
+    if (isNaN(amount) || amount <= 0) {
+        messageText.textContent = "Please enter a valid amount to withdraw.";
+        return;
+    }
+
+    if (amount > balance) {
+        messageText.textContent = "Insufficient funds.";
+        return;
+    }
+
+    balance -= amount;
     balanceText.textContent = `$${balance.toFixed(2)}`;
-    messageText.textContent = "Current balance displayed successfully.";
+    messageText.textContent = "Withdrawal completed successfully.";
+
+    amountInput.value = "";
 });
